@@ -1,11 +1,18 @@
 <template>
   <div class="home">
     <div class="menu-container">
-      <h1>🚀 Portal Principal</h1>
-      <p>Elige una opción:</p>
+      <h1>🌟 Bienvenido</h1>
+      <p>Selecciona una opción para continuar:</p>
       <div class="menu">
-        <router-link to="/rfc"><button>Generar RFC</button></router-link>
-        <router-link to="/ventas"><button>Punto de Venta</button></router-link>
+        <router-link to="/rfc">
+          <button>📝 Generar RFC</button>
+        </router-link>
+        <router-link to="/ventas">
+          <button>💳 Punto de Venta</button>
+        </router-link>
+        <router-link to="/empleados">
+          <button>👥 Consultar Empleados</button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -13,60 +20,77 @@
 
 <script>
 export default {
-  name: "HomeView"
-}
+  name: "HomeView",
+};
 </script>
 
 <style>
-/* Centrar todo el contenedor en pantalla */
+/* Fondo degradado dinámico */
 .home {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(-45deg, #42b983, #5bc0de, #f9ca24, #ff6b6b);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Animación de fondo */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .menu-container {
   text-align: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 50px 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
+}
+
+.menu-container:hover {
+  transform: translateY(-5px);
 }
 
 h1 {
-  margin-bottom: 10px;
-  color: #42b983;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-size: 2.5rem;
 }
 
 p {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   font-size: 18px;
   color: #555;
 }
 
+/* Botones */
 .menu button {
-  background-color: #42b983;
+  background: linear-gradient(135deg, #42b983, #2ecc71);
   border: none;
   color: white;
-  padding: 15px 35px;
+  padding: 15px 40px;
   margin: 15px;
   font-size: 18px;
   cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(66,184,131,0.4);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(66, 184, 131, 0.4);
   transition: all 0.3s ease;
 }
 
 .menu button:hover {
-  background-color: #369870;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(66,184,131,0.5);
+  background: linear-gradient(135deg, #369870, #27ae60);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(66, 184, 131, 0.6);
 }
 
 .menu a {
-  text-decoration: none; /* Quitar subrayado de router-link */
+  text-decoration: none;
 }
 </style>

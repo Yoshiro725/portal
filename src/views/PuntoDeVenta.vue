@@ -1,3 +1,4 @@
+
 <template>
   <div class="pos-container">
     <Toast />
@@ -82,6 +83,8 @@ export default {
     const confirm = useConfirm()
     return { toast, confirm }
   },
+
+        // Datos y estado, métodos de la lógica
   data() {
     return {
       productos: [
